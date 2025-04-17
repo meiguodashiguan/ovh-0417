@@ -57,23 +57,26 @@ const Layout = () => {
           {!isLoading && !isAuthenticated && <APINotice />}
           
           <div className="container mx-auto max-w-7xl">
-            {!sidebarOpen && (
-              <motion.button
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.3 }}
-                onClick={toggleSidebar}
-                className="mr-4 p-2 bg-cyber-grid rounded-md border border-cyber-accent/30 text-cyber-accent hover:bg-cyber-accent/20 hover:shadow-neon transition-all"
-                aria-label="打开菜单"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="3" y1="12" x2="21" y2="12"></line>
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-              </motion.button>
-            )}
+            <div className="flex justify-between items-center mb-4 mt-6">
+              <div className="flex-1"></div> {/* 页面标题将在各个页面内显示 */}
+              {!sidebarOpen && (
+                <motion.button
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: 20 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={toggleSidebar}
+                  className="p-2 bg-cyber-grid rounded-md border border-cyber-accent/30 text-cyber-accent hover:bg-cyber-accent/20 hover:shadow-neon transition-all"
+                  aria-label="打开菜单"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                  </svg>
+                </motion.button>
+              )}
+            </div>
             <Outlet />
           </div>
           
